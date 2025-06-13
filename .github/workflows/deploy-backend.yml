@@ -12,7 +12,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v3
       with:
-        repository: your-username/test
+        repository: tsp1423/test
         token: ${{ secrets.PRIVATE_REPO_PAT }}
         ref: ${{ github.event.client_payload.ref }}
 
@@ -24,7 +24,7 @@ jobs:
     - name: Setup gcloud CLI
       uses: google-github-actions/setup-gcloud@v1
       with:
-        project_id: datamanagement-coip
+        project_id: training-project-419308
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         export_default_credentials: true
 
@@ -37,4 +37,4 @@ jobs:
           --allow-unauthenticated \
           --entry-point=accuracy_scoring \
           --source=Backend/Accuracy \
-          --service-account=datamanagement-coip@appspot.gserviceaccount.com
+          --service-account=training-project-419308@appspot.gserviceaccount.com
